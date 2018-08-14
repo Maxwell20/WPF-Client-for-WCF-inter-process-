@@ -1,0 +1,16 @@
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\bin\Debug\WPFClient1.exe.config
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\bin\Debug\WPFClient1.exe
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\bin\Debug\WPFClient1.pdb
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\bin\Debug\WcfServiceA.exe
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\bin\Debug\WcfServiceA.pdb
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\MainWindow.g.cs
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\App.g.cs
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1_MarkupCompile.cache
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1_MarkupCompile.lref
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\MainWindow.baml
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1.g.resources
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1.Properties.Resources.resources
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1.csproj.GenerateResource.Cache
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1.exe
+c:\users\mtwente\documents\visual studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1.pdb
+C:\Users\mtwente\Documents\Visual Studio 2015\Projects\WPFClient1\WPFClient1\obj\Debug\WPFClient1.csprojResolveAssemblyReference.cache
