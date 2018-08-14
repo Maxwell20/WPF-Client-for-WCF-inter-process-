@@ -22,8 +22,25 @@ namespace WPFClient1
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     ///
+    /*
+     * Important note about UseSynchronizationContext beahvior!!!!!
+     * if UseSynchronizationContext = true
+     * then the value from the System.Threading.SynchronizationContext.
+     * Current is read and cached so that when a request
+     * comes to the service, the host can marshal the request onto the
+     * thread that the host was created on using the cached SynchronizationContext.
+     * If you try to host a service in, for example,
+     * a WPF application and also call that service from the same thread in the WPF application, 
+     * you will notice that you get a deadlock when the client tries to call the service.
+     * The reason for this is that the default value of the UseSynchronizationContext is 
+     * true and so when you create the ServiceHost on the UI thread of the WPF application,
+     * then the current synchronization context is a DispatcherSynchronizationContext which
+     * holds a reference to a System.Windows.Threading.Dispatcher
+     * object which then holds a reference to the current thread. 
+     * The DispatcherSynchronizationContext will then be used when a request comes in to marshal requests onto the UI thread.
+     * But if you are calling the service from the UI thread then you have a deadlock when it tries to do this.
+     */
 
-   
     [CallbackBehavior(UseSynchronizationContext = false/*this takes the callbacks off of the UI event queue*/)]
     public partial class MainWindow : Window, IServiceAEvents
     {
@@ -64,8 +81,8 @@ namespace WPFClient1
                     fEx.Message +
                     " " + fEx.Reason +
                     " " +
-                    "SOAP Code: " + fEx.Code
-                    );
+                    "SOAP Code: " + fEx.Code +
+                    "\n");
             }
             catch (Exception ex)
             {
@@ -78,6 +95,27 @@ namespace WPFClient1
             //pass this class into service to register it as a callback client.
             mServiceA = WcfServiceA.ConnectionFactory.Connect(this);
         }
+        private void Disconnect_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                mServiceA.DeregisterClient(this);
+            }
+            catch(FaultException fEx)
+            {
+                textBox.AppendText("Fault exception was thrown: " +
+                fEx.Message +
+                " " + fEx.Reason +
+                " " +
+                "SOAP Code: " + fEx.Code +
+                "\n");
+            }
+            catch(Exception ex)
+            {
+                textBox.AppendText("Exception was thrown: " + ex.Message);
+            }
+        }
+
         private void UpdateService_Click(object sender, RoutedEventArgs e)
         {
             //send a one-way message to the service
@@ -103,7 +141,6 @@ namespace WPFClient1
         {
             Application.Current.Dispatcher.Invoke(new Action(() => textBox.AppendText(callbackStr + "\n")));
         }
-
         //end callbacks
     }
 }
